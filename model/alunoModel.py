@@ -40,52 +40,49 @@ class AlunoModel:
     def getSenha(self):
         return self.__senha
 
-    def gravarDados(self):
-        pass
 
     def verDados(self):
-        dada = [self.getMatricula(),self.getNome(),self.getEmail(),self.getGenero(),self.getSenha()]
-        return dada
+        data = f"{self.getMatricula()},{self.getNome()},{self.getEmail()},{self.getGenero()},{self.getSenha()}\n"
+        #self.getMatricula()+"\n"+self.getNome()+"\n"+self.getEmail()+"\n"+self.getGenero()+"\n"+self.getSenha()+"\n"
+        #
+        return data
 
-        return self.getMatricula()+"\n"+self.getNome()+"\n"+self.getEmail()+"\n"+self.getGenero()+"\n"+self.getSenha()
+        #return self.getMatricula()+"\n"+self.getNome()+"\n"+self.getEmail()+"\n"+self.getGenero()+"\n"+self.getSenha()
 
-    # def tratarDados(self):
-    #     self.d = self.verDados()
-    #     self.dtratado = [d.replace()]
 
-    def inserirDados(self):
-        d=[self.verDados()]
-        try:
-            arq = open("F:/DAD\Atividade 2 - final - cadastro Tkfull\MVC - DAD/model/dados.txt","a+")
-            arq.write(d)
-            arq.close()
-        except:
-            open("F:/DAD\Atividade 2 - final - cadastro Tkfull\MVC - DAD/model/dados.txt","a+")
+
+    def Salvar(self):
+        arq = open('model/dados.txt','a')
+        arq.write(self.verDados())
+        arq.close()
+
+
 
         
-
-    def dadoAluno(self, nome):
-        # arq = open('database/dados.txt', "r")
-        # linhas = arq.readlines()
-        linhas = self.verDados()
+    def validarGravacao(self):
+        arq = open('model/dados.txt','r')
+        linhas = arq.readlines()
         result = []
-        dadoaluno = []
+        data = self.verDados()
         for l in linhas:
             result.append(l.replace('\n', ''))
+            if data in linhas:
+                return print('ok')
+            else: 
+                return print('não ok')   
+        alunos = []
         for d in result:
             if "," in d:
-                aluno = d.split(",")
-                dadoaluno.append(aluno)
-        return dadoaluno
-
-    def obtemParticipantes(dados):
-        participantes = []
-        for d in dados:
-            if "," in d:
                 individual = d.split(",")
-                participantes.append(individual)
-        return participantes
+                alunos.append(individual)
+  
+        arq.close()
+        
+        #return print(alunos,len(alunos))
+            
+        
+        
+        
+    
 
-    #-----------------------------------------------------------
-    # entrada = lerArquivo("dados.txt")
-    # dados = obtemParticipantes(entrada)
+
