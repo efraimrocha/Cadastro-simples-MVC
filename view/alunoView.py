@@ -10,7 +10,7 @@ class AlunoView:
                 ['E-mail',input],
                 ['Gênero',('Feminino','Masculino')],
                 ['Senha',complex],
-                [{'*Sair':'assets/img/sair2.png'},' ',{'*Cadastrar':'assets/img/save.png'}],
+                [{'*Sair':''},' ',{'*Cadastrar':''}]
                 ]
 
         def __init__(self):
@@ -27,14 +27,12 @@ class AlunoView:
                 sleep(1)
                 quit()
 
-        def Cadastrar(self):
-                self.Salvar()
+        def Cadastrar(self):         
                 dados = AlunoController()
-                msn = dados.pegarDados(self.jan)
-                self.jan.mensagem(msn)
+                valid = dados.validacao()
+                dados = dados.pegarDados(self.jan)               
+                self.jan.mensagem("Dados gravados com sucesso!")
+                print(valid)
         
-        def Salvar(self):
-                save=AlunoController()
-                save.gravarDados()
+       
 
-AlunoView()
