@@ -18,8 +18,10 @@ class AlunoController:
         aluno.setEmail(email)
         aluno.setGenero(genero)
         aluno.setSenha(senha)
+        aluno.Salvar()
+        aluno.validarGravacao()      
         return aluno.verDados()
 
-    def gravarDados(self):
-        self.gravar=AlunoModel()
-        self.gravar.inserirDados()
+    def validacao(self):
+        aluno = AlunoModel()
+        aluno = aluno.validarGravacao()
