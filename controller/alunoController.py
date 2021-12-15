@@ -1,3 +1,4 @@
+
 from model.alunoModel import AlunoModel
 
 class AlunoController:
