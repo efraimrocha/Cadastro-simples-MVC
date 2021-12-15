@@ -44,20 +44,14 @@ class AlunoModel:
     def verDados(self):
         data = f"{self.getMatricula()},{self.getNome()},{self.getEmail()},{self.getGenero()},{self.getSenha()}\n"
         #self.getMatricula()+"\n"+self.getNome()+"\n"+self.getEmail()+"\n"+self.getGenero()+"\n"+self.getSenha()+"\n"
-        #
         return data
 
         #return self.getMatricula()+"\n"+self.getNome()+"\n"+self.getEmail()+"\n"+self.getGenero()+"\n"+self.getSenha()
-
-
 
     def Salvar(self):
         arq = open('model/dados.txt','a')
         arq.write(self.verDados())
         arq.close()
-
-
-
         
     def validarGravacao(self):
         arq = open('model/dados.txt','r')
@@ -69,15 +63,13 @@ class AlunoModel:
             if data in linhas:
                 return print('ok')
             else: 
-                return print('não ok')   
+                return print('não')   
         alunos = []
         for d in result:
             if "," in d:
                 individual = d.split(",")
                 alunos.append(individual)
-  
         arq.close()
-        
         #return print(alunos,len(alunos))
             
         
