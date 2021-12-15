@@ -10,7 +10,7 @@ class AlunoView:
                 ['E-mail',input],
                 ['Gênero',('Feminino','Masculino')],
                 ['Senha',complex],
-                [{'*Sair':''},' ',{'*Cadastrar':''}]
+                [{'*Sair':'assets\img\sair2.png'},' ',{'*Cadastrar':'assets\img\save.png'}]
                 ]
 
         def __init__(self):
